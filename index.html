@@ -46,12 +46,6 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 </iframe>
 {% endif %}
 
-<h4>This is the workshop template.  Use it to create your own website.
-Delete this line and email the link to your workshop page to admin@software-carpentry.org.
-If this is a self organized workshop, please be sure to include any other details
-Software Carpentry staff may need to know in your email.</h4>
-
-
 <h2 id="general">General Information</h2>
 
 <!--
@@ -181,23 +175,28 @@ Software Carpentry staff may need to know in your email.</h4>
   <div class="col-md-6">
     <h3>Day 1</h3>
     <table class="table table-striped">
-      <tr> <td>09:00</td>  <td>Automating tasks with the Unix shell</td> </tr>
-      <tr> <td>10:30</td> <td>Coffee</td> </tr>
-      <tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-      <tr> <td>13:00</td>  <td>Building programs with Python</td> </tr>
-      <tr> <td>14:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>16:00</td>  <td>Wrap-up</td> </tr>
+      <tr> <td>08:30 - 09:00</td> <td>Welcome and Setup</td> </tr>
+      <tr> <td>09:00 - 10:30</td>  <td><a href="https://eharstad.github.io/shell-novice/">Automating tasks with the Unix shell</a></td> </tr>
+      <tr> <td>10:30 - 10:45</td>  <td>Coffee</td> </tr>
+      <tr> <td>10:45 - 12:00</td>  <td><a href="https://eharstad.github.io/shell-novice/">Automating tasks with the Unix shell (continued)</a></td> </tr>
+      <tr> <td>12:00 - 13:00</td>  <td>Lunch Break (Provided)</td> </tr>
+      <tr> <td>13:00 - 13:30</td>  <td><a href="https://eharstad.github.io/git-novice/">Introduction to version contorl with Git</a></td> </tr>
+      <tr> <td>13:30 - 14:30</td>  <td><a href="https://eharstad.github.io/git-novice/">Introduction to HCC resources and Modules and Job Submission</a></td> </tr>
+      <tr> <td>14:30 - 14:45</td>  <td>Coffee</td> </tr>
+      <tr> <td>14:45 - 16:30</td>  <td><a href="https://eharstad.github.io/git-novice/">HCC resources and Modules and Job Submission (continued)</a></td> </tr>
     </table>
   </div>
   <div class="col-md-6">
     <h3>Day 2</h3>
     <table class="table table-striped">
-      <tr> <td>09:00</td>  <td>Version control with Git</td> </tr>
-      <tr> <td>10:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-      <tr> <td>13:00</td>  <td>Managing data with SQL</td> </tr>
-      <tr> <td>14:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>16:00</td>  <td>Wrap-up</td> </tr>
+      <tr> <td colspan="2">&nbsp;</td></tr>
+      <tr> <td>09:00 - 10:30</td>  <td><a href="https://eharstad.github.io/python-novice-inflammation/">Programming with Python I</a></td> </tr>
+      <tr> <td>10:30 - 10:45</td>  <td>Coffee</td> </tr>
+      <tr> <td>10:45 - 12:00</td>  <td><a href="https://eharstad.github.io/python-novice-inflammation/">Programming with Python II</a></td> </tr>
+      <tr> <td>12:00 - 13:00</td>  <td>Lunch Break (Provided)</td> </tr>
+      <tr> <td>13:00 - 14:30</td>  <td><a href="https://eharstad.github.io/python-novice-inflammation/">Programming with Python III</a></td> </tr>
+      <tr> <td>14:30 - 14:45</td>  <td>Coffee</td> </tr>
+      <tr> <td>14:45 - 16:30</td>  <td><a href="https://eharstad.github.io/python-novice-inflammation/">Programming with Python IV</a></td> </tr>
     </table>
   </div>
 </div>
@@ -243,11 +242,11 @@ Software Carpentry staff may need to know in your email.</h4>
   please preview your site before committing, and make sure to run
   'tools/check' as well.
 -->
-<h2 id="syllabus">Syllabus</h2>
+<h2>Syllabus</h2>
 
 <div class="row">
   <div class="col-md-6">
-    <h3 id="syllabus-shell">The Unix Shell</h3>
+    <h3>The Unix Shell</h3>
     <ul>
       <li>Files and directories</li>
       <li>History and tab completion</li>
@@ -255,11 +254,35 @@ Software Carpentry staff may need to know in your email.</h4>
       <li>Looping over files</li>
       <li>Creating and running shell scripts</li>
       <li>Finding things</li>
-      <li><a href="{{site.swc_github_io}}/shell-novice/reference/">Reference...</a></li>
+      <li><a href="{{site.swc_lessons}}/ref/01-shell.html">Reference...</a></li>
     </ul>
   </div>
+<div class="row">
   <div class="col-md-6">
-    <h3 id="syllabus-python">Programming in Python</h3>
+    <h3>Version Control with Git</h3>
+    <ul>
+      <li>Creating a repository</li>
+      <li>Recording changes to files: <code>add</code>, <code>commit</code>, ...</li>
+      <li>Viewing changes: <code>status</code>, <code>diff</code>, ...</li>
+      <li><a href="{{site.swc_lessons}}/ref/02-git.html">Reference...</a></li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Introduction to HCC resources</h3>
+    <ul>
+      <li>HCC Resources</li>
+      <li>Module System</li>
+      <li>Job Scheduler</li>
+      <li>Submitting batch job</li>
+      <li>Submitting interactive jor</li>
+      <li><a href="{{site.swc_lessons}}/ref/02-git.html">Reference...</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="col-md-6">
+    <h3>Programming in Python</h3>
     <ul>
       <li>Using libraries</li>
       <li>Working with arrays</li>
@@ -268,64 +291,7 @@ Software Carpentry staff may need to know in your email.</h4>
       <li>Loops and conditionals</li>
       <li>Defensive programming</li>
       <li>Using Python from the command line</li>
-      <li><a href="{{site.swc_github_io}}/python-novice-inflammation/reference/">Reference...</a></li>
-    </ul>
-  </div>
-  <!--
-  <div class="col-md-6">
-    <h3 id="syllabus-r">Programming in R</h3>
-    <ul>
-      <li>Working with vectors and data frames</li>
-      <li>Reading and plotting data</li>
-      <li>Creating and using functions</li>
-      <li>Loops and conditionals</li>
-      <li>Using R from the command line</li>
-      <li><a href="{{site.swc_github_io}}/r-novice-inflammation/reference/">Reference...</a></li>
-    </ul>
-  </div>
-  -->
-  <!--
-  <div class="col-md-6">
-    <h3 id="syllabus-matlab">Programming in MATLAB</h3>
-    <ul>
-      <li>Working with arrays</li>
-      <li>Reading and plotting data</li>
-      <li>Creating and using functions</li>
-      <li>Loops and conditionals</li>
-      <li>Defensive programming</li>
-      <li><a href="{{site.swc_github_io}}/matlab-novice-inflammation/reference/">Reference...</a></li>
-     </ul>
-   </div>
-   -->
-</div>
-
-<div class="row">
-  <div class="col-md-6">
-    <h3 id="syllabus-git">Version Control with Git</h3>
-    <ul>
-      <li>Creating a repository</li>
-      <li>Recording changes to files: <code>add</code>, <code>commit</code>, ...</li>
-      <li>Viewing changes: <code>status</code>, <code>diff</code>, ...</li>
-      <li>Ignoring files</li>
-      <li>Working on the web: <code>clone</code>, <code>pull</code>, <code>push</code>, ...</li>
-      <li>Resolving conflicts</li>
-      <li>Open licenses</li>
-      <li>Where to host work, and why</li>
-      <li><a href="{{site.swc_github_io}}/git-novice/reference/">Reference...</a></li>
-    </ul>
-  </div>
-  <div class="col-md-6">
-    <h3 id="syllabus-sql">Managing Data with SQL</h3>
-    <ul>
-      <li>Reading and sorting data</li>
-      <li>Filtering with <code>where</code></li>
-      <li>Calculating new values on the fly</li>
-      <li>Handling missing values</li>
-      <li>Combining values using aggregation</li>
-      <li>Combining information from multiple tables using <code>join</code></li>
-      <li>Creating, modifying, and deleting data</li>
-      <li>Programming with databases</li>
-      <li><a href="{{site.swc_github_io}}/sql-novice-survey/reference/">Reference...</a></li>
+      <li><a href="{{site.swc_lessons}}/ref/03-python.html">Reference...</a></li>
     </ul>
   </div>
 </div>
