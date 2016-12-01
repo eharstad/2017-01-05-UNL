@@ -1,23 +1,22 @@
 ---
 layout: workshop      # DON'T CHANGE THIS.
-root: .
+root: .               # DON'T CHANGE THIS EITHER.  (THANK YOU.)
 carpentry: "swc"    # what kind of Carpentry (must be either "dc" or "swc")
-venue: University of Nebraska - Omaha        # brief name of host site without address (e.g., "Euphoric State University")
-address: "Peter Kiewit Institute (PKI) Room 160 / 1110 S 67th St, Omaha, NE 68182"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria")
+venue: "University of Nebraska - Lincoln"        # brief name of host site without address (e.g., "Euphoric State University")
+address: "Jackie Gaughan Multicultural Center - room 202 (Ubuntu), 1505 S St, Lincoln, NE 68508 "      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria")
 country: "us"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1)
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/ISO_639-1)
-latlng: "41.247045,-96.016905"       # decimal latitude and longitude of workshop venue (e.g., "41.7901128,-87.6007318" - use http://www.latlong.net/)
-humandate: July 14-15, 2016    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+latlng: "40.818029,-96.699585"       # decimal latitude and longitude of workshop venue (e.g., "41.7901128,-87.6007318" - use http://www.latlong.net/)
+humandate: "Jan 5-6, 2017"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "8:30 am - 4:30 pm"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
-startdate: 2016-07-14      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: 2016-07-15        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["Adam Caprez", "Jingchao Zhang", "Derek Weitzel"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["John Thiltges", "Nicholas Palermo", "Zhongtao Zhang", "Natasha Pavlovikj", "David Swanson"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
-contact: "npavlovikj@cse.unl.edu"      # contact email address for host, lead instructor, or whoever else is handling questions
-etherpad: https://public.etherpad-mozilla.org/p/2016-07-14-UNO             # optional: URL for the workshop Etherpad if there is one
-registration: https://marketplace.unl.edu/default/software-carpentry-workshop-pki-july-14-15.html
-building: Peter Kiewit Institute
-room: Room 160
+startdate: 2017-01-05      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2017-01-06        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+instructor: ["Jingchao Zhang", "Natasha Pavlovikj", "Carrie Brown"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+helper: ["Emelie Harstad", "Derek Weitzel", "Adam Caprez", "David Swanson"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+contact: ["hcc-support@unl.edu"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
+etherpad:          https://public.etherpad-mozilla.org/p/2017-01-05-UNL   # optional: URL for the workshop Etherpad if there is one
+eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
+registration: https://marketplace.unl.edu/hcc/hcc-software-carpentry-workshop-jan-5th-6th-2017.html
 ---
 
 <!-- See instructions in the comments below for how to edit specific sections of this workshop template. -->
@@ -107,12 +106,6 @@ room: Room 160
 </p>
 {% endif %}
 
-<p id="parking">
-  <strong>Parking:</strong>
-  There are <a href="http://www.unomaha.edu/maps/docs/uno-parking-map-2013-8.pdf">student, faculty and visitor parking lots</a> 
-  available at PKI. Temporary Parking Permits may be obtained by e-mailing <a href="mailto:{{page.contact}}">{{page.contact}}</a>.
-</p>
-
 <!--
   SPECIAL REQUIREMENTS
 
@@ -128,15 +121,54 @@ room: Room 160
 </p>
 
 <!--
+  ACCESSIBILITY
+
+  Modify the block below if there are any barriers to accessibility or
+  special instructions.
+-->
+<!--
+<p id="accessibility">
+  <strong>Accessibility:</strong> We are committed to making this workshop
+  accessible to everybody.
+  The workshop organisers have checked that:
+</p>
+<ul>
+  <li>The room is wheelchair / scooter accessible.</li>
+  <li>Accessible restrooms are available.</li>
+</ul>
+<p>
+  Materials will be provided in advance of the workshop and
+  large-print handouts are available if needed by notifying the
+  organizers in advance.  If we can help making learning easier for
+  you (e.g. sign-language interpreters, lactation facilities) please
+  <a href="mailto:{{page.contact}}">get in touch</a> and we will
+  attempt to provide them.
+</p>
+-->
+
+<!--
   CONTACT EMAIL ADDRESS
 
   Display the contact email address set in the configuration file.
 -->
 <p id="contact">
   <strong>Contact</strong>:
-  Please e-mail
-  <a href="mailto:{{page.contact}}">{{page.contact}}</a> for more
-  information.
+  Please email
+  {% if page.contact %}
+    {% for contact in page.contact: %}
+      {% if forloop.last and page.contact.size > 1 %}
+        or
+      {% else %}
+        {% unless forloop.first %}
+        ,
+        {% endunless %}
+      {% endif %}
+      <a href='mailto:{{contact}}'>{{contact}}</a>
+    {% endfor %}
+  {% else %}
+    to-be-announced
+  {% endif %}
+  for more information.
 </p>
 
 <hr/>
@@ -148,41 +180,42 @@ room: Room 160
   to match your plans.  You may also want to change 'Day 1' and 'Day
   2' to be actual dates or days of the week.
 -->
-<h2 id="schedule">Schedule</h2>
 
-<!-- DO NOT EDIT SURVEY LINKS 
-<p><em>Surveys</em></p>
+<!-- DO NOT EDIT SURVEY LINKS -->
+<h2 id="surveys">Surveys</h2>
 <p>Please be sure to complete these surveys before and after the workshop.</p>
 <p><a href="{{ site.pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
 <p><a href="{{ site.post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
--->
 
+<h2 id="schedule">Schedule</h2>
 <div class="row">
   <div class="col-md-6">
-    <h3>Day 1, July 14th</h3>
+    <h3>Day 1</h3>
     <table class="table table-striped">
-      <tr> <td>08:30 - 09:00</td> <td>Welcome and Set-up</td> </tr>
-      <tr> <td>09:00 - 10:30</td>  <td><a href="http://swcarpentry.github.io/shell-novice/">Automating tasks with the Unix shell</a></td> </tr>
-      <tr> <td>10:30 - 10:45</td>  <td>Coffee</td> </tr>
-      <tr> <td>10:45 - 12:00</td>  <td><a href="http://swcarpentry.github.io/shell-novice/">Automating tasks with the Unix shell (continued)</a></td> </tr>
-      <tr> <td>12:00 - 13:00</td>  <td>Lunch Break (Provided)</td> </tr>
-      <tr> <td>13:00 - 13:30</td>  <td><a href="http://swcarpentry.github.io/git-novice/">Introduction to version control with Git</a></td> </tr>
-      <tr> <td>13:30 - 14:30</td>  <td><a href="https://hcc-docs.unl.edu/display/HCCDOC/Software+Carpentry+Workshop-UNO%2C+July+14-15%2C+2016?preview=/16516359/16517045/2016_July_SWC.pdf">Introduction to HCC resources</a></td> </tr>
-      <tr> <td>14:30 - 14:45</td>  <td>Coffee</td> </tr>
-      <tr> <td>14:45 - 16:30</td>  <td><a href="https://hcc-docs.unl.edu/display/HCCDOC/Software+Carpentry+Workshop-UNO%2C+July+14-15%2C+2016?preview=/16516359/16517045/2016_July_SWC.pdf">Introduction to HCC resources (continued)</a></td> </tr>
-    </table>
+      <tr> <td>08:30-09:00</td>  <td>Set-up</td> </tr>
+      <tr> <td>09:00-10:30</td> <td><a href="https://eharstad.github.io/shell-novice/">Automating tasks with the Unix Shell</a></td> </tr>
+      <tr> <td>10:30-10:45</td> <td>Coffee break</td></tr>
+      <tr> <td>10:45-12:00</td> <td><a href="https://eharstad.github.io/shell-novice/">Automating tasks with the Unix Shell (continued) </a></td> </tr>
+      <tr> <td>12:00-13:00</td>  <td>Lunch break </td> </tr>
+      <tr> <td>13:00-14:00</td>  <td><a href="https://eharstad.github.io/shell-novice/">Automating tasks with the Unix Shell (continued) </a></td> </tr>
+      <tr> <td>14:00-14:30</td> <td><a href="https://eharstad.github.io/git-novice/">Version Control with Git</a></td> </tr>
+      <tr> <td>14:30-14:45</td>  <td>Coffee break</td> </tr>
+      <tr> <td>14:45-16:30</td> <td><a href="https://eharstad.github.io/git-novice/">Version Control with Git (continued)</a></td> </tr>
+      <tr> <td>16:30</td>  <td>Wrap-up</td> </tr>
+     </table>
   </div>
   <div class="col-md-6">
-    <h3>Day 2, July 15th</h3>
+    <h3>Day 2</h3>
     <table class="table table-striped">
-      <tr> <td>08:30 - 09:00</td> <td>Set-up</td> </tr>
-      <tr> <td>09:00 - 10:30</td>  <td><a href="https://djw8605.github.io/python-novice-inflammation/">Programming with Python I</a></td> </tr>
-      <tr> <td>10:30 - 10:45</td>  <td>Coffee</td> </tr>
-      <tr> <td>10:45 - 12:00</td>  <td><a href="https://djw8605.github.io/python-novice-inflammation/">Programming with Python II</a></td> </tr>
-      <tr> <td>12:00 - 13:00</td>  <td>Lunch Break (Provided)</td> </tr>
-      <tr> <td>13:00 - 14:30</td>  <td><a href="https://djw8605.github.io/python-novice-inflammation/">Programming with Python III</a></td> </tr>
-      <tr> <td>14:30 - 14:45</td>  <td>Coffee</td> </tr>
-      <tr> <td>14:45 - 16:30</td>  <td><a href="https://djw8605.github.io/python-novice-inflammation/">Programming with Python IV</a></td> </tr>
+      <tr> <td>08:30-09:00</td> <td>Set-up</td> </tr>
+      <tr> <td>09:00-10:30</td> <td>Programming with R I</td> </tr>
+      <tr> <td>10:30-10:45</td>  <td>Coffee break</td> </tr>
+      <tr> <td>10:45-12:00</td>  <td>Programming with R II</td> </tr>
+      <tr> <td>12:00-13:00</td>  <td>Lunch break</td> </tr>
+      <tr> <td>13:00-14:30</td>  <td>Programming with R III</td> </tr>
+      <tr> <td>14:30-14:45</td>  <td>Coffee break</td> </tr>
+      <tr> <td>14:45-16:30</td>  <td>Programming with R IV</td> </tr>
+      <tr> <td>16:30</td>  <td>Wrap-up</td> </tr>
     </table>
   </div>
 </div>
@@ -228,11 +261,11 @@ room: Room 160
   please preview your site before committing, and make sure to run
   'tools/check' as well.
 -->
-<h2>Syllabus</h2>
+<h2 id="syllabus">Syllabus</h2>
 
 <div class="row">
   <div class="col-md-6">
-    <h3>The Unix Shell</h3>
+    <h3 id="syllabus-shell">The Unix Shell</h3>
     <ul>
       <li>Files and directories</li>
       <li>History and tab completion</li>
@@ -240,32 +273,12 @@ room: Room 160
       <li>Looping over files</li>
       <li>Creating and running shell scripts</li>
       <li>Finding things</li>
-      <li><a href="{{site.swc_lessons}}/ref/01-shell.html">Reference...</a></li>
+      <li><a href="{{site.swc_pages}}/shell-novice/reference/">Reference...</a></li>
     </ul>
   </div>
+<!--
   <div class="col-md-6">
-    <h3>Version Control with Git</h3>
-    <ul>
-      <li>Creating a repository</li>
-      <li>Recording changes to files: <code>add</code>, <code>commit</code>, ...</li>
-      <li>Viewing changes: <code>status</code>, <code>diff</code>, ...</li>
-      <li><a href="{{site.swc_lessons}}/ref/02-git.html">Reference...</a></li>
-    </ul>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-    <h3>Introduction to HCC resources</h3>
-    <ul>
-      <li>HCC resources</li>
-      <li>Module system</li>
-      <li>Job scheduler</li>
-      <li>Submitting batch jobs</li>
-      <li>Submitting interactive jobs</li>
-    </ul>
-</div>
-  <div class="col-md-6">
-    <h3>Programming in Python</h3>
+    <h3 id="syllabus-python">Programming in Python</h3>
     <ul>
       <li>Using libraries</li>
       <li>Working with arrays</li>
@@ -274,9 +287,67 @@ room: Room 160
       <li>Loops and conditionals</li>
       <li>Defensive programming</li>
       <li>Using Python from the command line</li>
-      <li><a href="{{site.swc_lessons}}/ref/03-python.html">Reference...</a></li>
+      <li><a href="{{site.swc_pages}}/python-novice-inflammation/reference/">Reference...</a></li>
     </ul>
   </div>
+-->
+  <div class="col-md-6">
+    <h3 id="syllabus-r">Programming in R</h3>
+    <ul>
+      <li>Working with vectors and data frames</li>
+      <li>Reading and plotting data</li>
+      <li>Creating and using functions</li>
+      <li>Loops and conditionals</li>
+      <li>Using R from the command line</li>
+      <li><a href="{{site.swc_pages}}/r-novice-inflammation/reference/">Reference...</a></li>
+    </ul>
+  </div>
+  <!--
+  <div class="col-md-6">
+    <h3 id="syllabus-matlab">Programming in MATLAB</h3>
+    <ul>
+      <li>Working with arrays</li>
+      <li>Reading and plotting data</li>
+      <li>Creating and using functions</li>
+      <li>Loops and conditionals</li>
+      <li>Defensive programming</li>
+      <li><a href="{{site.swc_pages}}/matlab-novice-inflammation/reference/">Reference...</a></li>
+     </ul>
+   </div>
+   -->
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h3 id="syllabus-git">Version Control with Git</h3>
+    <ul>
+      <li>Creating a repository</li>
+      <li>Recording changes to files: <code>add</code>, <code>commit</code>, ...</li>
+      <li>Viewing changes: <code>status</code>, <code>diff</code>, ...</li>
+      <li>Ignoring files</li>
+      <li>Working on the web: <code>clone</code>, <code>pull</code>, <code>push</code>, ...</li>
+      <li>Resolving conflicts</li>
+      <li>Open licenses</li>
+      <li>Where to host work, and why</li>
+      <li><a href="{{site.swc_pages}}/git-novice/reference/">Reference...</a></li>
+    </ul>
+  </div>
+<!--
+  <div class="col-md-6">
+    <h3 id="syllabus-sql">Managing Data with SQL</h3>
+    <ul>
+      <li>Reading and sorting data</li>
+      <li>Filtering with <code>where</code></li>
+      <li>Calculating new values on the fly</li>
+      <li>Handling missing values</li>
+      <li>Combining values using aggregation</li>
+      <li>Combining information from multiple tables using <code>join</code></li>
+      <li>Creating, modifying, and deleting data</li>
+      <li>Programming with databases</li>
+      <li><a href="{{site.swc_pages}}/sql-novice-survey/reference/">Reference...</a></li>
+    </ul>
+  </div>
+-->
 </div>
 
 <hr/>
@@ -303,43 +374,8 @@ room: Room 160
 <p>
   We maintain a list of common issues that occur during installation as a reference for instructors
   that may be useful on the
-  <a href = "https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
+  <a href = "{{site.swc_github}}/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
 </p>
-
-<div id="hcc"> <!-- Start of 'HCC' section. -->
-  <h3>HCC User Account</h3>
-
-  <p>
-    In order to use the HCC resources, an HCC account is required.
-	If you don't have an account, please apply for one
-	<a href = "https://hcc.unl.edu/new-user-request">here</a>.
-	If your research advisor does not already have a group account, please request that they
-    <a href = "https://hcc.unl.edu/new-group-request">create one</a>
-    before you request your user account.
-  </p>
-  <p>
-    Beside username and password, additional Duo two-factor
-    authentication is required for access to the HCC resources. This second authentication
-    can be in several different forms
-    <a href = "https://hcc-docs.unl.edu/x/gwBU">(cell phone, YubiKey)</a>
-    and needs to be set in-person in either HCC location in Lincoln or Omaha.
-  </p>
-  <p>
-    Please be aware that since the HCC account sign-up requires advisor approval
-    and in-person account activation, it can take few days to complete.
-  </p>
-  <p>
-    If you are not affiliated with NU, we will have demo accounts available for
-    you to use on the day of the workshop.
-  </p>
-  <p>
-	Additionally, in order to be able to login to the HCC resources,
-    Windows users should download and install 
-    <a href = "http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a>
-    on their laptops.
-  </p>
-
-</div> <!-- End of 'HCC' section. -->
 
 <div id="shell"> <!-- Start of 'shell' section. -->
   <h3>The Bash Shell</h3>
@@ -357,40 +393,35 @@ room: Room 160
         <li>Download the Git for Windows <a href="https://git-for-windows.github.io/">installer</a>.</li>
         <li>Run the installer and follow the steps bellow:
           <ol>
-            <!-- Git 2.6.1 Setup -->
-            <!-- Welcome to the Git Setup Wizard -->
-            <li>Click on "Next".</li>
+            <!-- Git 2.8.2 Setup -->
             <!-- Information -->
             <li>Click on "Next".</li>
-            <!-- Select Destination Location -->
-            <li>Click on "Next".</li>
             <!-- Select Components -->
-            <li>Click on "Next".</li>
-            <!-- Select Start Menu Folder -->
             <li>Click on "Next".</li>
             <!-- Adjusting your PATH environment -->
             <li>
               <strong>
-                Select "Use Git from the Windows Command Prompt" and click on "Next".
+                Keep "Use Git from the Windows Command Prompt" selected and click on "Next".
               </strong>
                 If you forgot to do this programs that you need for the workshop will not work properly.
                 If this happens rerun the installer and select the appropriate option.
             </li>
+            <!-- Choosing the SSH executable -->
+            <li>Click on "Next".</li>
             <!-- Configuring the line ending conversions -->
             <li>
-              Click on "Next".
               <strong>
-                Keep "Checkout Windows-style, commit Unix-style line endings" selected.
+                Keep "Checkout Windows-style, commit Unix-style line endings" selected and click on "Next".
               </strong>
             </li>
             <!-- Configuring the terminal emulator to use with Git Bash -->
             <li>
               <strong>
-                Select "Use Windows' default console window" and click on "Next".
+                Keep "Use Windows' default console window" selected and click on "Next".
               </strong>
             </li>
             <!-- Configuring experimental performance tweaks -->
-            <li>Click on "Next".</li>
+            <li>Click on "Install".</li>
             <!-- Installing -->
             <!-- Completing the Git Setup Wizard -->
             <li>Click on "Finish".</li>
@@ -436,7 +467,7 @@ room: Room 160
   </div>
 </div> <!-- End of 'shell' section. -->
 
-<div id='git'> <!-- Start of 'Git' section. GitHub browser compatability
+<div id="git"> <!-- Start of 'Git' section. GitHub browser compatability
            is given at https://help.github.com/articles/supported-browsers/-->
   <h3>Git</h3>
   <p>
@@ -512,7 +543,7 @@ room: Room 160
       <p>
         nano is a basic editor and the default that instructors use in the workshop.
         To install it,
-        download the <a href="http://files.software-carpentry.org/SWCarpentryInstaller.exe">Software Carpentry Windows installer</a>
+        download the <a href="{{site.swc_installer}}">Software Carpentry Windows installer</a>
         and double click on the file to run it.
         <strong>This installer requires an active internet connection.</strong>
       </p>
@@ -555,93 +586,58 @@ room: Room 160
   </div>
 </div> <!-- End of 'editor' section. -->
 
-<div id="python"> <!-- Start of 'Python' section. Remove the third paragraph if
-           the workshop will teach Python using something other than
-           the IPython notebook.
-           Details at http://ipython.org/ipython-doc/2/install/install.html#browser-compatibility -->
-  <h3>Python</h3>
+
+<div id="r"> <!-- Start of 'R' section. -->
+  <h3>R</h3>
 
   <p>
-    <a href="http://python.org">Python</a> is a popular language for
-    scientific computing, and great for general-purpose programming as
-    well.  Installing all of its scientific packages individually can be
-    a bit difficult, so we recommend
-    <a href="https://www.continuum.io/anaconda">Anaconda</a>,
-    an all-in-one installer.
+    <a href="http://www.r-project.org">R</a> is a programming language
+    that is especially powerful for data exploration, visualization, and
+    statistical analysis. To interact with R, we use
+    <a href="http://www.rstudio.com/">RStudio</a>.
   </p>
-
-    <p>
-      Regardless of how you choose to install it,
-      <strong>please make sure you install Python version 3.x</strong>
-      (e.g., 3.4 is fine).
-    </p>
-
-    <p>
-      We will teach Python using the IPython notebook, a programming environment
-      that runs in a web browser. For this to work you will need a reasonably
-      up-to-date browser. The current versions of the Chrome, Safari and
-      Firefox browsers are all
-      <a href="http://ipython.org/ipython-doc/2/install/install.html#browser-compatibility">supported</a>
-      (some older browsers, including Internet Explorer version 9
-      and below, are not).
-    </p>
 
   <div class="row">
     <div class="col-md-4">
-      <h4 id="python-windows">Windows</h4>
-      <a href="https://www.youtube.com/watch?v=xxQ0mzZ8UvA">Video Tutorial</a>
-      <ol>
-        <li>Open <a href="http://continuum.io/downloads">http://continuum.io/downloads</a> with your web browser.</li>
-        <li>Download the Python 3 installer for Windows.</li>
-        <li>Install Python 3 using all of the defaults for installation <em>except</em> make sure to check <strong>Make Anaconda the default Python</strong>.</li>
-      </ol>
+      <h4 id="r-windows">Windows</h4>
+      <a href="https://www.youtube.com/watch?v=q0PjTAylwoU">Video Tutorial</a>
+      <p>
+        Install R by downloading and running
+        <a href="http://cran.r-project.org/bin/windows/base/release.htm">this .exe file</a>
+        from <a href="http://cran.r-project.org/index.html">CRAN</a>.
+        Also, please install the
+        <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
+        Note that if you have separate user and admin accounts, you should run the 
+        installers as administrator (right-click on .exe file and select "Run as 
+        administrator" instead of double-clicking). Otherwise problems may occur later, 
+        for example when installing R packages.
+      </p>
     </div>
     <div class="col-md-4">
-      <h4 id="python-macosx">Mac OS X</h4>
-      <a href="https://www.youtube.com/watch?v=TcSAln46u9U">Video Tutorial</a>
-      <ol>
-        <li>Open <a href="http://continuum.io/downloads">http://continuum.io/downloads</a> with your web browser.</li>
-        <li>Download the Python 3 installer for OS X.</li>
-        <li>Install Python 3 using all of the defaults for installation.</li>
-      </ol>
+      <h4 id="r-macosx">Mac OS X</h4>
+      <a href="https://www.youtube.com/watch?v=5-ly3kyxwEg">Video Tutorial</a>
+      <p>
+        Install R by downloading and running
+        <a href="http://cran.r-project.org/bin/macosx/R-latest.pkg">this .pkg file</a>
+        from <a href="http://cran.r-project.org/index.html">CRAN</a>.
+        Also, please install the
+        <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
+      </p>
     </div>
     <div class="col-md-4">
-      <h4 id="python-linux">Linux</h4>
-      <ol>
-        <li>Open <a href="http://continuum.io/downloads">http://continuum.io/downloads</a> with your web browser.</li>
-        <li>Download the Python 3 installer for Linux.</li>
-        <li>Install Python 3 using all of the defaults for installation.
-        (Installation requires using the shell. If you aren't
-        comfortable doing the installation yourself
-        stop here and request help at the workshop.)</li>
-        <li>
-          Open a terminal window.
-        </li>
-        <li>
-          Type <pre>bash Anaconda3-</pre> and then press
-          tab. The name of the file you just downloaded should
-          appear.
-        </li>
-        <li>
-          Press enter. You will follow the text-only prompts.  When
-          there is a colon at the bottom of the screen press the down
-          arrow to move down through the text. Type <code>yes</code> and
-          press enter to approve the license. Press enter to approve the
-          default location for the files. Type <code>yes</code> and
-          press enter to prepend Anaconda to your <code>PATH</code>
-          (this makes the Anaconda distribution the default Python).
-        </li>
-      </ol>
+      <h4 id="r-linux">Linux</h4>
+      <p>
+        You can download the binary files for your distribution
+        from <a href="http://cran.r-project.org/index.html">CRAN</a>. Or
+        you can use your package manager (e.g. for Debian/Ubuntu
+        run <code>sudo apt-get install r-base</code> and for Fedora run
+        <code>sudo yum install R</code>).  Also, please install the
+        <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
+      </p>
     </div>
   </div>
-<!--
-  <p>
-  Once you are done installing the software listed above,
-  please go to <a href="setup/index.html">this page</a>,
-  which has instructions on how to test that everything was installed correctly.
-  </p>
--->
-</div> <!-- End of 'Python' section. -->
+</div> <!-- End of 'R' section. -->
+
 
 <!--
   Uncomment this section if you are using our virtual machine.
